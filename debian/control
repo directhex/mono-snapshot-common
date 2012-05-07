@@ -1,0 +1,15 @@
+Source: mono-snapshot-common
+Section: devel
+Priority: optional
+Maintainer: Jo Shields <directhex@apebox.org>
+Build-Depends: debhelper (>= 7.0.50)
+Standards-Version: 3.9.3
+Homepage: http://github.com/directhex/mono-snapshot-common
+
+Package: mono-snapshot-common
+Architecture: all
+Depends: environment-modules, ${shlibs:Depends}, ${misc:Depends}
+Description: Common helper tools for Mono snapshot packages
+ This package helps users to manage their environment when using
+ daily build snapshots of Mono direct from the mono-project.com
+ site.

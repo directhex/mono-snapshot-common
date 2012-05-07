@@ -1,0 +1,3 @@
+#!/bin/bash
+
+MODULEPATH=/usr/share/mono-snapshot/packages.d module "$@"
