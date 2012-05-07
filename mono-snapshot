@@ -1,3 +1,15 @@
 #!/bin/bash
 
+# The module command is a shell alias, as determined by the user's login shell.
+# This ensures that mono-snapshot works regardless of whether someone uses
+# bash, tcsh, zsh, etc.
+#
+# Environment is loaded by a modulefile distributed with each mono-snapshot
+# package. The modulefile goes into /usr/share/mono-snapshot/packages.d/PKG/VER
+# - for example, mono/20120507-1 or xsp/20121203-3 in the future.
+# 
+# Default versions are handled via mono-snapshot-latest updating the .version
+# file in the PKG folder with a set ModulesVersion stanza pointed to the latest
+# which allows the user to just say "mono-snapshot add mono"
+
 MODULEPATH=/usr/share/mono-snapshot/packages.d module "$@"
