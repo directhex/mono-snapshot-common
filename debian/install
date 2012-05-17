@@ -1,1 +1,2 @@
 mono-snapshot	/usr/bin/
+debian/99mono-snapshot	/etc/apt/apt.conf.d/
