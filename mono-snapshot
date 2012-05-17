@@ -1,15 +1,45 @@
 #!/bin/bash
 
-# The module command is a shell alias, as determined by the user's login shell.
-# This ensures that mono-snapshot works regardless of whether someone uses
-# bash, tcsh, zsh, etc.
-#
-# Environment is loaded by a modulefile distributed with each mono-snapshot
-# package. The modulefile goes into /usr/share/mono-snapshot/packages.d/PKG/VER
-# - for example, mono/20120507-1 or xsp/20121203-3 in the future.
-# 
-# Default versions are handled via mono-snapshot-latest updating the .version
-# file in the PKG folder with a set ModulesVersion stanza pointed to the latest
-# which allows the user to just say "mono-snapshot add mono"
+# basic script to mangle environment
+# Copyright 2012 Jo Shields
+# Licensed under WTFPL v2
 
-MODULEPATH=/usr/share/mono-snapshot/packages.d module "$@"
+if [ "x$0" != "xbash" ]
+then
+        echo "This script will help you to set up your environment to use a"
+	echo "snapshot package of Mono. To use it, run:"
+	echo
+	echo -e "\t. $(basename $0) APP/VER"
+	echo
+	echo "You have the following possible combinations of APP/VER:"
+	echo
+	cd /usr/share/mono-snapshot/packages.d/ && ls */* | sed 's/^/\t/'
+	echo
+	echo "Calling APP without specifying VER will load the latest version"
+	exit 0
+fi
+
+VER=$1
+if [ "x${VER}" == "x" ]
+then
+	echo "You must specify a snapshot to use"
+	return 1
+fi
+if [ `expr index ${VER} "/"` -eq 0 ]
+then
+	if [ -d "/usr/share/mono-snapshot/packages.d/${VER}" ]
+	then
+		VER=$1/$(basename `ls /usr/share/mono-snapshot/packages.d/${VER}/* | tail -1`)
+	else
+		echo "You must specify a valid app (no app ${VER} found)"
+		return 1
+	fi
+fi
+if [ -e "/usr/share/mono-snapshot/packages.d/${VER}" ]
+then
+	. /usr/share/mono-snapshot/packages.d/${VER}
+else
+	echo "You must specify a valid app version (no app ${VER} found)"
+	return 1
+fi
+

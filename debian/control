@@ -8,7 +8,7 @@ Homepage: http://github.com/directhex/mono-snapshot-common
 
 Package: mono-snapshot-common
 Architecture: all
-Depends: environment-modules, ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Common helper tools for Mono snapshot packages
  This package helps users to manage their environment when using
  daily build snapshots of Mono direct from the mono-project.com

@@ -1,7 +1,0 @@
-APT
-{
-  NeverAutoRemove
-  {
-        "^mono-snapshot-*";
-  };
-};
