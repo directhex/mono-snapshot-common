@@ -1,3 +1,11 @@
+mono-snapshot-common (00000010) unstable; urgency=low
+
+  * Tweak mono-snapshot script to better handle cases where the interactive
+    shell is not simply "bash" - for example, on Debian Testing, it shows
+    up as "-bash", which breaks version 00000001.
+
+ -- Jo Shields <directhex@apebox.org>  Thu, 19 Jul 2012 13:35:42 +0100
+
 mono-snapshot-common (00000001) UNRELEASED; urgency=low
 
   * Initial release.

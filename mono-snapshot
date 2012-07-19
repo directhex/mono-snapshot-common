@@ -4,7 +4,7 @@
 # Copyright 2012 Jo Shields
 # Licensed under WTFPL v2
 
-if [ "x$0" != "xbash" ]
+if [ "$(expr \"$0\" : \".*sh\")" -eq "0" ]
 then
         echo "This script will help you to set up your environment to use a"
 	echo "snapshot package of Mono. To use it, run:"
