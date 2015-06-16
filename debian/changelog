@@ -1,3 +1,9 @@
+mono-snapshot-common (00000011) unstable; urgency=medium
+
+  * Fix for zsh (Thanks to Gaetan Paucot)
+
+ -- Jo Shields <directhex@apebox.org>  Tue, 16 Jun 2015 11:21:18 +0100
+
 mono-snapshot-common (00000010) unstable; urgency=low
 
   * Tweak mono-snapshot script to better handle cases where the interactive
