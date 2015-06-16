@@ -4,8 +4,8 @@
 # Copyright 2012 Jo Shields
 # Licensed under WTFPL v2
 
-([[ -n $ZSH_EVAL_CONTEXT && $ZSH_EVAL_CONTEXT =~ :file$ ]] || [[ -n $KSH_VERSION && $(cd "$(dirname -- "$0")" && printf '%s' "${PWD%/}/")$(basename -- "$0") != "${.sh.file}" ]] || [[ -n $BASH_VERSION && $0 != "$BASH_SOURCE" ]]) && sourced=1 || sourced=0
-if [ "$sourced" -eq "0" ]
+shtest=$(expr \"$0\" : '.*sh')
+if [ "$shtest" -eq "0" ]
 then
         echo "This script will help you to set up your environment to use a"
 	echo "snapshot package of Mono. To use it, run:"
