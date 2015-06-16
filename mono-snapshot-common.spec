@@ -1,6 +1,6 @@
 Summary:	Common helper tools for Mono snapshot packages
 Name:		mono-snapshot-common
-Version:	00000011
+Version:	00000100
 Release:	0.xamarin.1
 License:	WTFPL
 Group:		Development/Languages/Mono
